@@ -6,12 +6,12 @@ function App() {
   const [counter, setCounter] = useState(0);
   const [showComponent, setShowComponent] = useState(false);
 
-  // componentWillMount
+  // componentDidMount
   useEffect(() => {
     document.title = 'React Hooks | useEffect';
   }, []);
 
-  //ComponentWillUpdate
+  //ComponentDidUpdate
   useEffect(() => {
     alert('Valor do contador: ' + counter)
   }, [counter]);
