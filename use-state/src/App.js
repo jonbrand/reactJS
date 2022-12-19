@@ -6,16 +6,16 @@ export function App() {
   const [counter, setCounter] = useState(0);
   const [showContent, setShowContent] = useState(false);
 
-  function handleCounter() {
-    setCounter(counter + 1);
-  }
-
-  function handleCounterDecrement() {
-    setCounter(counter - 1);
+  function adjustCount(amount) {
+    setCounter(currentCount => {
+      return currentCount + amount;
+    })
   }
 
   function handleShowContent() {
-    setShowContent(!showContent)
+    setShowContent(currentShowContent => {
+      return !currentShowContent
+    })
   }
 
   return (
@@ -23,9 +23,9 @@ export function App() {
       <h1>Contador</h1>
       <Content showContent={showContent} />
       <p>{counter}</p>
-      <button onClick={handleCounter}>Incrementar</button>
+      <button onClick={() => adjustCount(1)}>Incrementar</button>
       &nbsp;
-      <button onClick={handleCounterDecrement}>Decrementar</button>
+      <button onClick={() => adjustCount(-1)}>Decrementar</button>
       &nbsp;
       <button onClick={handleShowContent}>{showContent ? 'Esconder Conteúdo' : 'Mostrar Conteúdo'}</button>
     </div>
