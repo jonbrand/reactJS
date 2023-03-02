@@ -4,6 +4,7 @@ import { Content } from './Components/Content/Content';
 
 export function App() {
   const [counter, setCounter] = useState(0);
+  // preserva o estado mesmo quando o componente e tirado
   const [showContent, setShowContent] = useState(false);
 
   function adjustCount(amount) {
